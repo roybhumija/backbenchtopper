@@ -5,7 +5,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { GraduationCap, Users, Eye, EyeOff, ArrowLeft } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.jpeg";
 
 const emailSchema = z.string().email("Please enter a valid email address");
 const passwordSchema = z.string().min(6, "Password must be at least 6 characters");
@@ -110,13 +110,10 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden p-4">
-      {/* Premium Gradient Background */}
-      <div className="fixed inset-0 bg-gradient-to-br from-background via-[hsl(20_15%_8%)] to-background" />
-      
+    <div className="min-h-screen bg-background flex items-center justify-center relative overflow-hidden p-4">
       {/* Background Effects */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/8 rounded-full blur-[120px]" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-bronze/8 rounded-full blur-[100px]" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-bronze/10 rounded-full blur-3xl" />
       
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -124,17 +121,12 @@ const Auth = () => {
         className="w-full max-w-md relative z-10"
       >
         {/* Logo */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-          className="text-center mb-8"
-        >
+        <div className="text-center mb-8">
           <a href="/" className="inline-block">
-            <img src={logo} alt="Back Bench Topper" className="w-28 h-28 mx-auto object-contain mb-4 drop-shadow-[0_0_20px_rgba(212,175,55,0.3)]" />
+            <img src={logo} alt="Back Bench Topper" className="w-24 h-24 mx-auto rounded-2xl object-cover mb-4" />
           </a>
           <h1 className="font-display text-2xl font-bold gradient-text">Back Bench Topper</h1>
-        </motion.div>
+        </div>
 
         <AnimatePresence mode="wait">
           {!role ? (

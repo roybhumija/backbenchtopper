@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { ArrowRight, BookOpen } from "lucide-react";
+import { ArrowRight, Sparkles, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.jpeg";
 
 const HeroSection = () => {
   return (
@@ -21,17 +21,29 @@ const HeroSection = () => {
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-card-gold mb-8"
+          >
+            <Sparkles className="w-4 h-4 text-gold" />
+            <span className="text-sm font-medium text-gold">Trusted by 50,000+ Students & Teachers</span>
+          </motion.div>
+
           {/* Logo Animation */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-            className="w-40 h-40 mx-auto mb-8"
+            initial={{ scale: 0, rotate: -180 }}
+            animate={{ scale: 1, rotate: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            className="w-32 h-32 mx-auto mb-10 relative"
           >
+            <div className="absolute inset-0 bg-gradient-to-br from-gold to-bronze rounded-2xl animate-glow-pulse" />
             <img 
               src={logo} 
               alt="Back Bench Topper" 
-              className="w-full h-full object-contain" 
+              className="absolute inset-1 rounded-xl object-cover shadow-xl" 
             />
           </motion.div>
 

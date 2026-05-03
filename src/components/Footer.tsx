@@ -10,7 +10,7 @@ import {
   MapPin
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.jpeg";
 
 const Footer = () => {
   const socialLinks = [
@@ -49,22 +49,19 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <motion.a 
-              href="/" 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-              className="flex items-center gap-3 mb-6 group"
-            >
-              <img 
-                src={logo} 
-                alt="Back Bench Topper" 
-                className="w-12 h-12 object-contain" 
-              />
+            <a href="/" className="flex items-center gap-3 mb-6 group">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gold/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <img 
+                  src={logo} 
+                  alt="Back Bench Topper" 
+                  className="w-11 h-11 rounded-xl object-cover relative z-10 ring-1 ring-gold/20" 
+                />
+              </div>
               <span className="font-display font-bold text-xl text-foreground">
                 Back Bench <span className="gradient-text">Topper</span>
               </span>
-            </motion.a>
+            </a>
             <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
               Empowering educators and students with a trusted, easy-to-use platform for online learning.
             </p>

@@ -15,7 +15,7 @@ import {
   Radio
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.jpeg";
 
 interface Course {
   id: string;
@@ -98,9 +98,8 @@ const TeacherDashboard = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center relative">
-        <div className="fixed inset-0 bg-gradient-to-br from-background via-[hsl(20_15%_8%)] to-background" />
-        <div className="animate-spin w-8 h-8 border-2 border-gold border-t-transparent rounded-full relative z-10" />
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="animate-spin w-8 h-8 border-2 border-gold border-t-transparent rounded-full" />
       </div>
     );
   }
@@ -112,29 +111,17 @@ const TeacherDashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen relative">
-      {/* Premium Gradient Background */}
-      <div className="fixed inset-0 bg-gradient-to-br from-background via-[hsl(20_15%_8%)] to-background" />
-      
-      {/* Background Effects */}
-      <div className="fixed top-1/4 left-1/4 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[150px] pointer-events-none" />
-      <div className="fixed bottom-1/3 right-1/4 w-[400px] h-[400px] bg-bronze/5 rounded-full blur-[120px] pointer-events-none" />
-      
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b border-border/50 bg-background/60 backdrop-blur-xl sticky top-0 z-50 relative">
+      <header className="border-b border-border bg-card/50 backdrop-blur-xl sticky top-0 z-50">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-              className="flex items-center gap-3"
-            >
-              <img src={logo} alt="Back Bench Topper" className="w-10 h-10 object-contain drop-shadow-[0_0_10px_rgba(212,175,55,0.2)]" />
+            <div className="flex items-center gap-3">
+              <img src={logo} alt="Back Bench Topper" className="w-10 h-10 rounded-lg object-cover" />
               <span className="font-display font-bold text-lg gradient-text hidden sm:block">
                 Teacher Dashboard
               </span>
-            </motion.div>
+            </div>
             <button
               onClick={handleSignOut}
               className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
@@ -146,7 +133,7 @@ const TeacherDashboard = () => {
         </div>
       </header>
 
-      <main className="container mx-auto px-4 lg:px-8 py-8 relative z-10">
+      <main className="container mx-auto px-4 lg:px-8 py-8">
         {/* Stats */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
           {stats.map((stat, index) => (
